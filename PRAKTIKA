@@ -1,0 +1,28 @@
+#include "stdio.h"
+#include <iostream>
+
+int rezult(int a, int b, int c)
+{
+	int z;
+	if (b == 0) return 1;
+	z = rezult(a, b / 2, c);
+	if (b % 2 == 0)
+		return (z*z) % c;
+	else
+		return (a*z*z) % c;
+}
+int main()
+{
+	int x, y, N;
+	setlocale(LC_ALL, "Rus");
+	printf("Введите данные:\n");
+ 	printf("Основание = ");
+	scanf_s("%i", &x);
+	printf("Степень = ");
+	scanf_s("%i", &y);
+	printf("Модуль = ");
+	scanf_s("%i", &N);
+	printf("Результат вычислений\n%i^%i mod%i = %i\n", x, y, N, rezult(x, y, N));
+	system("pause");
+	return 0;
+}
